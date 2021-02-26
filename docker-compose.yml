@@ -13,7 +13,7 @@ ports:
 environment:
 - ACCEPT_EULA=Y
 - MSSQL_PID=Standard
-- SA_PASSWORD=Password123321
+- SA_PASSWORD=1010
 - MSSQL_AGENT_ENABLED=true
 kafka:
 image: confluentinc/cp-kafka
