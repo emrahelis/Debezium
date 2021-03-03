@@ -1,7 +1,15 @@
 version: '3.1'
 services:
 
-     sqlserver:
+    
+    db:
+    zookeeper:
+        image: confluentinc/cp-zookeeper
+        ports:
+          - "2181:2181"
+        environment:
+          ZOOKEEPER_CLIENT_PORT: 2181
+    sqlserver:
 	image: microsoft/mssql-server-linux:2017-CU9-GDR2
 	ports:
 	- "1433:1433"
@@ -10,13 +18,6 @@ services:
 	- MSSQL_PID=Standard
 	- SA_PASSWORD=1010
 	- MSSQL_AGENT_ENABLED=true
-    db:
-    zookeeper:
-        image: confluentinc/cp-zookeeper
-        ports:
-          - "2181:2181"
-        environment:
-          ZOOKEEPER_CLIENT_PORT: 2181
     kafka:
         image: confluentinc/cp-kafka
         depends_on:
