@@ -9,7 +9,7 @@ services:
   kafka:
     image: confluentinc/cp-kafka
     ports:
-     - 9098:9098
+     - 9092:9092
     links:
      - zookeeper
     environment:
@@ -31,7 +31,7 @@ services:
      - kafka
      - sqlserver
     environment:
-     - BOOTSTRAP_SERVERS=192.168.51.32:9098
+     - BOOTSTRAP_SERVERS=192.168.51.32:9092
      - GROUP_ID=1
      - CONFIG_STORAGE_TOPIC=my_connect_configs
      - OFFSET_STORAGE_TOPIC=my_connect_offsets
